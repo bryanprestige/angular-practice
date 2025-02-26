@@ -1,1 +1,16 @@
-<p>login-form works!</p>
+
+<p>login!</p>
+
+<form action="" [formGroup]="loginForm" id="loginForm" (ngSubmit)="onFormSubmit()">
+  <label for="email"> Email<input type="email" id="email" name="email" placeholder="Enter your email"
+  formControlName="email"
+  [ngClass]= "{'error': loginForm.value.email === ''}">
+</label>
+  <label for="password">Password<input type="password" id="password" name="password" placeholder="Enter your Password"
+  formControlName="password"
+  [ngClass]= "{'error': this.loginForm.value.password === ''}">
+</label>
+  <div class="wrap">
+      <button type="submit" id="submit-button-login" [disabled]="!loginForm.valid">Submit</button>
+  </div>
+</form>
